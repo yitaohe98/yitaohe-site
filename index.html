@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yitao He</title>
+  <meta name="description" content="Yitao He — 分享系统工程、面试准备与人生迁移的经历与思考。" />
+  <style>
+    body{
+      max-width: 780px; margin: 72px auto; padding: 0 20px;
+      font: 16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      color:#111;
+    }
+    h1{font-size:42px; margin:0 0 6px;}
+    .sub{color:#555; margin:0 0 24px;}
+    a{color:inherit; text-decoration:underline; text-underline-offset:3px;}
+    .links a{margin-right:14px;}
+    hr{border:0; border-top:1px solid #eee; margin:28px 0;}
+    .card{padding:16px 18px; border:1px solid #eee; border-radius:14px; margin:14px 0;}
+    .muted{color:#666;}
+    ul{padding-left:18px;}
+  </style>
+</head>
+<body>
+
+  <h1>Yitao He</h1>
+  <p class="sub">Systems Engineer · Distributed Systems · Reliability</p>
+
+  <p>
+    我在这里记录和分享：高并发/可靠性系统的思考、面试与成长笔记，以及从硅谷回到国内的迁移过程。
+  </p>
+
+  <div class="links">
+    <a href="https://github.com/TODO" target="_blank" rel="noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/TODO" target="_blank" rel="noreferrer">LinkedIn</a>
+    <a href="mailto:TODO@example.com">Email</a>
+  </div>
+
+  <hr />
+
+  <div class="card">
+    <strong>最近</strong>
+    <ul>
+      <li>整理一套个人迁移清单：账户、税务、设备、身份与文档。</li>
+      <li>复盘系统设计：exactly-once、cache一致性、热点击穿与可观测性。</li>
+      <li>把经历写成可复用的“决策框架”：如何在压力下做长期选择。</li>
+    </ul>
+    <div class="muted">（MVP 版本：先把网站上线，内容会持续更新。）</div>
+  </div>
+
+  <div class="card">
+    <strong>我会写什么</strong>
+    <ul>
+      <li><strong>Engineering</strong>：distributed systems / reliability / production debugging</li>
+      <li><strong>Interview</strong>：system design memo + coding patterns（偏 C++/backend）</li>
+      <li><strong>Life</strong>：迁移日志、职业选择、财务与生活方式</li>
+    </ul>
+  </div>
+
+  <p class="muted">© <span id="y"></span> Yitao He · yitaohe.com</p>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
