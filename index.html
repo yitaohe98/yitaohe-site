@@ -5,185 +5,74 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Yitao He</title>
   <meta name="description" content="Yitao He — 分享系统工程、面试准备与人生迁移的经历与思考。" />
-  <style>
-    *{box-sizing:border-box;}
-    body{
-      max-width: 780px; margin: 0 auto; padding: 0 20px;
-      font: 16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;
-      color:#111;
-      padding-top: 72px;
-    }
-    /* Top bar */
-    .topbar{
-      position:fixed; top:0; left:0; right:0;
-      max-width:780px; margin:0 auto; padding: 16px 20px;
-      background:#fff; border-bottom:1px solid #eee;
-      display:flex; align-items:center; gap:24px;
-      z-index:100;
-    }
-    .topbar .site-name{ font-weight:600; font-size:18px; }
-    .topbar .site-name a{ text-decoration:none; color:inherit; }
-    .topbar nav{ display:flex; gap:20px; }
-    .topbar nav a{
-      text-decoration:none; color:#555;
-      font-size:15px;
-    }
-    .topbar nav a:hover{ color:#111; }
-    .topbar nav a.active{ color:#111; font-weight:500; }
-    h1{font-size:42px; margin:0 0 6px;}
-    .sub{color:#555; margin:0 0 24px;}
-    a{color:inherit; text-decoration:underline; text-underline-offset:3px;}
-    .links a{margin-right:14px;}
-    hr{border:0; border-top:1px solid #eee; margin:28px 0;}
-    .card{padding:16px 18px; border:1px solid #eee; border-radius:14px; margin:14px 0;}
-    .muted{color:#666;}
-    ul{padding-left:18px;}
-    /* Sections: only active one visible */
-    .section{ display:none; }
-    .section.active{ display:block; }
-  </style>
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
 
   <header class="topbar">
-    <span class="site-name"><a href="#overview">Yitao He</a></span>
+    <span class="site-name"><a href="./">Yitao He</a></span>
     <nav>
-      <a href="#overview" data-section="overview" class="active">Overview</a>
-      <a href="#comments" data-section="comments">Comments</a>
-      <a href="#blogs" data-section="blogs">Blogs</a>
-      <a href="#updates" data-section="updates">Updates</a>
+      <a href="overview/" data-section="overview" class="active">Overview</a>
+      <a href="comments/" data-section="comments">Comments</a>
+      <a href="blogs/" data-section="blogs">Blogs</a>
+      <a href="updates/" data-section="updates">Updates</a>
     </nav>
   </header>
 
   <main>
-    <!-- Overview -->
-    <section id="overview" class="section active">
-      <h1>Yitao He</h1>
-      <p class="sub">Systems Engineer · Distributed Systems · Reliability</p>
+    <h1>Yitao He</h1>
+    <p class="sub">Systems Engineer · Distributed Systems · Reliability</p>
 
-      <p>
-        Hello and welcome.<br />
-        Engineer at heart, outdoor enthusiast by choice — building reliable systems while enjoying poker, fishing, and nature.
-      </p>
+    <p>
+      Hello and welcome.<br />
+      Engineer at heart, outdoor enthusiast by choice — building reliable systems while enjoying poker, fishing, and nature.
+    </p>
 
-      <div class="links">
-        <a href="https://github.com/yitaohe98/yitaohe-site" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="mailto:jackh98zz@gmail.com">Email</a>
-      </div>
+    <div class="links">
+      <a href="https://github.com/yitaohe98/yitaohe-site" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="mailto:jackh98zz@gmail.com">Email</a>
+    </div>
 
-      <hr />
+    <hr />
 
-      <div class="card">
-        <strong>About me</strong>
-        <p class="muted" style="margin:0 0 12px;">Shanghai → Champaign → San Jose → Shanghai</p>
-        <p style="margin:0 0 6px;"><strong>Education</strong></p>
-        <ul style="margin:0 0 12px;">
-          <li>Shanghai Jiao Tong University (BS, 2016–2020)</li>
-          <li>University of Illinois Urbana-Champaign (MS, 2021–2022)</li>
-        </ul>
-        <p style="margin:0 0 6px;"><strong>Career</strong></p>
-        <ul style="margin:0;">
-          <li>Bank software developer, Bank of Shanghai, Shanghai (2020–2021)</li>
-          <li>Cybersecurity backend software developer, Zscaler, San Jose (2023–2026)</li>
-          <li>Freelance developer (now)</li>
-        </ul>
-      </div>
+    <div class="card">
+      <strong>About me</strong>
+      <p class="muted" style="margin:0 0 12px;">Shanghai → Champaign → San Jose → Shanghai</p>
+      <p style="margin:0 0 6px;"><strong>Education</strong></p>
+      <ul style="margin:0 0 12px;">
+        <li>Shanghai Jiao Tong University (BS, 2016–2020)</li>
+        <li>University of Illinois Urbana-Champaign (MS, 2021–2022)</li>
+      </ul>
+      <p style="margin:0 0 6px;"><strong>Career</strong></p>
+      <ul style="margin:0;">
+        <li>Bank software developer, Bank of Shanghai, Shanghai (2020–2021)</li>
+        <li>Cybersecurity backend software developer, Zscaler, San Jose (2023–2026)</li>
+        <li>Freelance developer (now)</li>
+      </ul>
+    </div>
 
-      <div class="card">
-        <strong>最近</strong>
-        <ul>
-          <li>整理一套个人迁移清单：账户、税务、设备、身份与文档。</li>
-          <li>复盘系统设计：exactly-once、cache一致性、热点击穿与可观测性。</li>
-          <li>把经历写成可复用的“决策框架”：如何在压力下做长期选择。</li>
-        </ul>
-        <div class="muted">（MVP 版本：先把网站上线，内容会持续更新。）</div>
-      </div>
+    <div class="card">
+      <strong>最近</strong>
+      <ul>
+        <li>整理一套个人迁移清单：账户、税务、设备、身份与文档。</li>
+        <li>复盘系统设计：exactly-once、cache一致性、热点击穿与可观测性。</li>
+        <li>把经历写成可复用的"决策框架"：如何在压力下做长期选择。</li>
+      </ul>
+      <div class="muted">（MVP 版本：先把网站上线，内容会持续更新。）</div>
+    </div>
 
-      <div class="card">
-        <strong>我会写什么</strong>
-        <ul>
-          <li><strong>Engineering</strong>：distributed systems / reliability / production debugging</li>
-          <li><strong>Interview</strong>：system design memo + coding patterns（偏 C++/backend）</li>
-          <li><strong>Life</strong>：阿滔1998</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Comments -->
-    <section id="comments" class="section">
-      <h1>Comments</h1>
-      <p class="sub">留言与讨论</p>
-      <p class="muted">评论由 Giscus（GitHub Discussions）提供，无需自建后端。在 repo 中启用 Discussions 后，将下方脚本中的 repo、repo-id、category 等替换为你的配置即可。</p>
-      <div class="card">
-        <strong>集成方式（待配置）</strong>
-        <ul>
-          <li>在 GitHub 仓库设置中开启 Discussions</li>
-          <li>到 <a href="https://giscus.app/zh-CN" target="_blank" rel="noreferrer">giscus.app</a> 按指引生成脚本</li>
-          <li>把生成的 <code>&lt;script src="https://giscus.app/..."&gt;</code> 插入本区块，并删除这段说明</li>
-        </ul>
-        <div id="giscus-container"></div>
-      </div>
-    </section>
-
-    <!-- Blogs -->
-    <section id="blogs" class="section">
-      <h1>Blogs</h1>
-      <p class="sub">文章与笔记</p>
-      <p class="muted">（此处可放博客列表；后续可改为从 Markdown 生成静态页面，或接 CMS。）</p>
-      <div class="card">
-        <strong>示例条目</strong>
-        <ul>
-          <li>系统设计复盘：exactly-once、cache 一致性（待写）</li>
-          <li>迁移清单：账户、税务、设备（待写）</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Updates -->
-    <section id="updates" class="section">
-      <h1>Updates</h1>
-      <p class="sub">站点与内容更新</p>
-      <p class="muted">（可在此维护简单的更新日志，纯静态即可。）</p>
-      <div class="card">
-        <strong>最近更新</strong>
-        <ul>
-          <li>增加顶部导航：Overview / Comments / Blogs / Updates</li>
-          <li>单页 + 锚点路由，一个域名即可</li>
-        </ul>
-      </div>
-    </section>
+    <div class="card">
+      <strong>我会写什么</strong>
+      <ul>
+        <li><strong>Engineering</strong>：distributed systems / reliability / production debugging</li>
+        <li><strong>Interview</strong>：system design memo + coding patterns（偏 C++/backend）</li>
+        <li><strong>Life</strong>：阿滔1998</li>
+      </ul>
+    </div>
   </main>
 
   <p class="muted">© <span id="y"></span> Yitao He · yitaohe.com</p>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    (function(){
-      var nav = document.querySelector('.topbar nav');
-      var sections = document.querySelectorAll('.section');
-      function showSection(id){
-        id = id || 'overview';
-        sections.forEach(function(s){ s.classList.toggle('active', s.id === id); });
-        if (nav) {
-          nav.querySelectorAll('a').forEach(function(a){
-            a.classList.toggle('active', (a.getAttribute('data-section') || a.getAttribute('href').slice(1)) === id);
-          });
-        }
-        history.replaceState(null, '', '#' + id);
-      }
-      function onHashChange(){
-        showSection((location.hash || '#overview').slice(1));
-      }
-      window.addEventListener('hashchange', onHashChange);
-      window.addEventListener('load', onHashChange);
-      if (nav) {
-        nav.addEventListener('click', function(e){
-          var a = e.target.closest('a');
-          if (a && a.getAttribute('href').charAt(0) === '#') onHashChange();
-        });
-      }
-    })();
-  </script>
+  <script src="js/site.js"></script>
 
 </body>
 </html>
