@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}
+    <div class="sub">{{ . }}</div>
+  {{ end }}
+
+  {{ range .Pages.ByDate.Reverse }}
+    {{ partial "blog-card.html" . }}
+  {{ end }}
+{{ end }}
+

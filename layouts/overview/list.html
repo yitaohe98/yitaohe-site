@@ -1,0 +1,18 @@
+{{ define "main" }}
+  {{ .Content }}
+
+  <hr />
+
+  <div class="card">
+    <strong>精选文章</strong>
+    {{ $featured := first 5 (where .Site.RegularPages "Section" "blogs") }}
+    {{ if not (eq (len $featured) 0) }}
+      {{ range $featured }}
+        {{ partial "blog-card.html" . }}
+      {{ end }}
+    {{ else }}
+      <p class="muted">精选文章即将到来。</p>
+    {{ end }}
+  </div>
+{{ end }}
+

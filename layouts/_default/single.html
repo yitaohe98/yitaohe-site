@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <article>
+    <h1>{{ .Title }}</h1>
+    <p class="muted">{{ .Date.Format "2006-01-02" }}</p>
+
+    {{ with .Params.description }}
+      <p class="sub">{{ . }}</p>
+    {{ end }}
+
+    {{ with .TableOfContents }}
+      <div class="card">
+        <strong>目录</strong>
+        {{ . }}
+      </div>
+    {{ end }}
+
+    {{ .Content }}
+
+    <p class="muted">
+      {{ with .Params.categories }}分类：{{ delimit . ", " }}{{ end }}
+      {{ with .Params.tags }}<br>标签：{{ delimit . ", " }}{{ end }}
+    </p>
+  </article>
+{{ end }}
+

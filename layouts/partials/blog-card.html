@@ -1,0 +1,11 @@
+<article class="card">
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  <p class="muted">{{ .Date.Format "2006-01-02" }}</p>
+  {{ with .Params.description }}
+  <p>{{ . }}</p>
+  {{ end }}
+  {{ with .Params.categories }}
+  <p class="muted">分类：{{ delimit . ", " }}</p>
+  {{ end }}
+</article>
+

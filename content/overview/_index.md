@@ -23,15 +23,3 @@ Engineer at heart, outdoor enthusiast by choice — building reliable systems wh
   - Cybersecurity backend software developer, Zscaler, San Jose (2023–2026)
   - Freelance developer (now)
 
-### Recently
-
-- Putting together a personal migration checklist: accounts, tax, devices, identity, and docs.
-- Revisiting system design: exactly-once, cache consistency, thundering herd, and observability.
-- Turning experience into reusable “decision frameworks”: how to make long-term choices under pressure.
-
-### What I’ll write about
-
-- **Engineering**: distributed systems / reliability / production debugging
-- **Interview**: system design memo + coding patterns (C++/backend)
-- **Life**: 阿滔1998
-
