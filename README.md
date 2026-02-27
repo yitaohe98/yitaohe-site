@@ -1,29 +1,68 @@
 # yitaohe-site
 
-Personal site for **Yitao He** — engineer, freelance developer, and outdoor enthusiast. Live at [yitaohe.com](https://yitaohe.com) (or wherever you host it).
+Personal site for **Yitao He** — Chinese-first technical blog and personal brand site, powered by Hugo and deployed to Cloudflare Pages.
 
 ## What it is
 
-- **Static site** — HTML in `en/` (and later `zh/`), shared `css/site.css` and `js/site.js`. No build step, no framework, no backend.
-- **URL scheme** — English: `/en/overview`, `/en/comments`, `/en/blogs`, `/en/updates`. Root `/` and `/en` redirect to `/en/overview/`.
-- **Top nav** — Overview, Comments, Blogs, Updates; nav active state is driven by the current path.
-- **Overview** — Short intro, About me (education + career), “Recently”, and “What I’ll write about”.
-- **Comments** — Placeholder for [Giscus](https://giscus.app) (GitHub Discussions). Enable Discussions and paste the generated script to add comments.
-- **Blogs** — Placeholder list for future posts (can be replaced with static-generated pages or a CMS later).
-- **Updates** — Simple changelog; edit the list in HTML as needed.
+- **Static site generator** — Hugo
+- **Content** — Markdown in `content/`
+- **Layouts** — Hugo templates in `layouts/`
+- **Assets** — CSS/JS/favicon in `static/`
+- **Docs** — Product and architecture docs in `docs/`
+
+## URL scheme
+
+- `/overview/` — overview page
+- `/blogs/` — blog listing
+- `/blogs/{category}/{slug}/` — individual posts
+- `/comments/` — static comments/contact page
 
 ## Repo structure
 
-```
-en/
-  overview/index.html
-  comments/index.html
-  blogs/index.html
-  updates/index.html
-  index.html          → redirects to /en/overview/
-css/site.css
-js/site.js
-index.html            → redirects to /en/overview/
+```text
+config.toml
+content/
+  overview/_index.md
+  blogs/_index.md
+  blogs/system-design/distributed-rate-limiter/index.md
+  blogs/life/migration-checklist/index.md
+  comments/_index.md
+layouts/
+  _default/baseof.html
+  _default/list.html
+  _default/single.html
+  overview/list.html
+  blogs/list.html
+  comments/list.html
+  partials/
+    header.html
+    footer.html
+    head-meta.html
+    blog-card.html
+static/
+  css/site.css
+  js/site.js
+  favicon.png           (add your icon here)
+docs/
+  v1.0prd.md
+  architecture.md
+  roadmap.md
+  decisions/
+    001-static-first.md
+    002-cloudflare-pages.md
+    003-markdown-workflow.md
 ```
 
-Planned: add `zh/` with the same category folders for Chinese; optionally a `content/` layout and a deploy script that copies content into `en/` / `zh/`.
+## Local development
+
+1. [Install Hugo](https://gohugo.io/getting-started/installing/).
+2. Run `hugo server` from the repo root.
+3. Open the local URL Hugo prints (usually `http://localhost:1313`).
+
+## Deployment (Cloudflare Pages)
+
+- Configure a Cloudflare Pages project pointing at this repository.
+- Set the **build command** to `hugo`.
+- Set the **output directory** to `public`.
+
+On `git push`, Cloudflare Pages will build and deploy the latest version of the site.
