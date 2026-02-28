@@ -8,7 +8,8 @@ title = "yitaohe.com"
 
 [permalinks]
   overview = "/overview/"
-  blogs = "/blogs/:primary_category/:slug/"
+  # content/blogs/system-design/post/ -> /blogs/system-design/post/
+  blogs = "/blogs/:sections[1]/:slug/"
   comments = "/comments/"
 
 [outputs]
