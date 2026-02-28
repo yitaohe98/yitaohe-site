@@ -102,6 +102,78 @@ body.site-body {
   background: var(--bg-soft);
 }
 
+.nav-lang-dropdown {
+  position: relative;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.nav-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--fg-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+
+.nav-lang-toggle:hover,
+.nav-lang-dropdown.is-open .nav-lang-toggle {
+  color: var(--fg);
+  border-color: var(--border-subtle);
+  background: var(--bg-soft);
+}
+
+.nav-lang-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin: 4px 0 0;
+  padding: 6px 0;
+  min-width: 100px;
+  list-style: none;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.18s, visibility 0.18s, transform 0.18s;
+  z-index: 30;
+}
+
+.nav-lang-dropdown.is-open .nav-lang-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-lang-menu-link {
+  display: block;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.nav-lang-menu-link:hover {
+  background: var(--bg-soft);
+  color: var(--accent);
+}
+
+.nav-lang-menu-link-current {
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
 .site-main {
   padding-bottom: 48px;
 }
@@ -182,6 +254,39 @@ body.site-body {
 .hero-meta {
   font-size: 13px;
   color: var(--fg-muted);
+}
+
+.overview-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.overview-content h1 {
+  margin: 0 0 4px;
+  font-size: 26px;
+}
+
+.overview-content h2 {
+  margin: 1em 0 0.5em;
+  font-size: 16px;
+}
+
+.overview-content p {
+  margin: 0 0 12px;
+}
+
+.overview-content ul {
+  padding-left: 1.25em;
+  margin: 0 0 12px;
+}
+
+.overview-content a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.overview-content a:hover {
+  text-decoration: underline;
 }
 
 .button {

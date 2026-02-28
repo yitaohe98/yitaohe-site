@@ -1,14 +1,30 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/">
+    <a class="brand" href="{{ .Site.Home.Permalink }}">
       <span class="brand-title">Yitao He</span>
       <span class="brand-subtitle">Systems Engineer · Distributed Systems · Reliability</span>
     </a>
     <nav class="nav">
-      <a href="/overview/" class="nav-link{{ if eq .Section "overview" }} nav-link-active{{ end }}">Overview</a>
-      <a href="/blogs/" class="nav-link{{ if eq .Section "blogs" }} nav-link-active{{ end }}">Blogs</a>
-      <a href="/comments/" class="nav-link{{ if eq .Section "comments" }} nav-link-active{{ end }}">Comments</a>
+      <a href="{{ "overview/" | relLangURL }}" class="nav-link{{ if eq .Section "overview" }} nav-link-active{{ end }}">{{ i18n "nav.overview" }}</a>
+      <a href="{{ "blogs/" | relLangURL }}" class="nav-link{{ if eq .Section "blogs" }} nav-link-active{{ end }}">{{ i18n "nav.blogs" }}</a>
+      <a href="{{ "comments/" | relLangURL }}" class="nav-link{{ if eq .Section "comments" }} nav-link-active{{ end }}">{{ i18n "nav.comments" }}</a>
+      <div class="nav-lang-dropdown">
+        <button type="button" class="nav-lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="{{ i18n "nav.switchLanguage" | default "翻译/Language" }}">
+          {{ i18n "nav.switchLanguage" | default "翻译/Language" }}
+        </button>
+        <ul class="nav-lang-menu" role="menu">
+          {{ $current := . }}
+          {{ $pages := .AllTranslations }}
+          {{ if not $pages }}
+            {{ $pages = .Site.Home.AllTranslations }}
+          {{ end }}
+          {{ range $pages }}
+            <li role="none">
+              <a href="{{ .Permalink }}" class="nav-lang-menu-link{{ if eq $current.Lang .Lang }} nav-lang-menu-link-current{{ end }}" role="menuitem">{{ default .Language.LanguageName (i18n (printf "langName.%s" .Lang)) }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
     </nav>
   </div>
 </header>
-

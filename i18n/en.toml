@@ -1,0 +1,22 @@
+# UI strings for English
+
+[nav]
+home = "Home"
+overview = "Overview"
+blogs = "Blogs"
+comments = "Comments"
+switchLanguage = "Language"
+
+[overview]
+featured = "Featured posts"
+education = "Education"
+career = "Career"
+
+[lang]
+en = "EN"
+zh-cn = "CN"
+
+[langName]
+zh = "Chinese"
+zh-cn = "Chinese"
+en = "English"

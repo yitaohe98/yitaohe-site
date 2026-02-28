@@ -5,15 +5,15 @@
     <link>http://localhost:1313/categories/life/</link>
     <description>Recent content in Life on yitaohe.com</description>
     <generator>Hugo</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Tue, 24 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/life/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Migration Checklist</title>
-      <link>http://localhost:1313/blogs/migration-checklist/</link>
+      <title>Example post 2</title>
+      <link>http://localhost:1313/blogs/example-post-2/</link>
       <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/migration-checklist/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Placeholder content.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This post will capture a practical checklist and reflections from moving between:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Shanghai&lt;/li&gt;&#xA;&lt;li&gt;Champaign&lt;/li&gt;&#xA;&lt;li&gt;San Jose&lt;/li&gt;&#xA;&lt;li&gt;Back to Shanghai&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Future content will be written with a Chinese-first audience in mind.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blogs/example-post-2/</guid>
+      <description>&lt;p&gt;Placeholder content. To be written.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

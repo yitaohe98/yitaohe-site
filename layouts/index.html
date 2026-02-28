@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <section class="section">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">{{ if .Title }}{{ .Title }}{{ else }}{{ i18n "nav.home" }}{{ end }}</h1>
+        {{ if .Content }}
+          <div class="page-intro">
+            {{ .Content }}
+          </div>
+        {{ end }}
+      </header>
+
+      <div class="grid grid-posts">
+        {{ $blogs := where .Site.RegularPages "Section" "blogs" }}
+        {{ range first 6 $blogs }}
+          {{ partial "blog-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

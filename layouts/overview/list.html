@@ -1,25 +1,12 @@
 {{ define "main" }}
   <section class="section section-hero">
     <div class="container hero-layout">
-      <div class="hero-text">
-        <h1 class="hero-title">Yitao He</h1>
-        <p class="hero-subtitle">Systems Engineer · Distributed Systems · Reliability</p>
-        <p class="hero-body">
-          Hello and welcome. Engineer at heart, outdoor enthusiast by choice — building reliable systems while enjoying poker, fishing, and nature.
-        </p>
-
-        <div class="hero-links">
-          <a href="#" class="button button-primary">GitHub</a>
-          <a href="#" class="button button-ghost">Email</a>
-        </div>
-
-        <div class="hero-meta">
-          <p>Shanghai → Champaign → San Jose → Shanghai</p>
-        </div>
+      <div class="hero-text overview-content">
+        {{ .Content }}
       </div>
 
       <div class="hero-panel">
-        <h2 class="panel-title">Featured posts</h2>
+        <h2 class="panel-title">{{ i18n "overview.featured" }}</h2>
         <div class="panel-list">
           {{ $featured := where .Site.RegularPages "Params.featured" true }}
           {{ if gt (len $featured) 0 }}
@@ -27,31 +14,10 @@
               {{ partial "blog-card.html" . }}
             {{ end }}
           {{ else }}
-            <p class="panel-empty">Featured posts will appear here as they are published.</p>
+            <p class="panel-empty">{{ i18n "overview.featured" }}</p>
           {{ end }}
         </div>
       </div>
     </div>
   </section>
-
-  <section class="section section-secondary">
-    <div class="container two-column">
-      <div>
-        <h2>Education</h2>
-        <ul class="list">
-          <li>Shanghai Jiao Tong University (BS, 2016–2020)</li>
-          <li>University of Illinois Urbana-Champaign (MS, 2021–2022)</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Career</h2>
-        <ul class="list">
-          <li>Bank software developer, Bank of Shanghai, Shanghai (2020–2021)</li>
-          <li>Cybersecurity backend software developer, Zscaler, San Jose (2023–2026)</li>
-          <li>Freelance developer (now)</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 {{ end }}
-

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -17,6 +17,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="http://localhost:1313/overview/" />
 
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.png" />
+
   <link rel="stylesheet" href="/css/site.css" />
   <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="yitaohe.com RSS" />
 </head>
@@ -25,7 +28,7 @@
   <body class="site-body">
     <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/">
+    <a class="brand" href="http://localhost:1313/">
       <span class="brand-title">Yitao He</span>
       <span class="brand-subtitle">Systems Engineer · Distributed Systems · Reliability</span>
     </a>
@@ -33,30 +36,57 @@
       <a href="/overview/" class="nav-link nav-link-active">Overview</a>
       <a href="/blogs/" class="nav-link">Blogs</a>
       <a href="/comments/" class="nav-link">Comments</a>
+      <div class="nav-lang-dropdown">
+        <button type="button" class="nav-lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+          Language
+        </button>
+        <ul class="nav-lang-menu" role="menu">
+          
+          
+          
+          
+            <li role="none">
+              <a href="http://localhost:1313/zh/overview/" class="nav-lang-menu-link" role="menuitem">Chinese</a>
+            </li>
+          
+            <li role="none">
+              <a href="http://localhost:1313/overview/" class="nav-lang-menu-link nav-lang-menu-link-current" role="menuitem">English</a>
+            </li>
+          
+        </ul>
+      </div>
     </nav>
   </div>
 </header>
-
 
     <main class="site-main">
       
   <section class="section section-hero">
     <div class="container hero-layout">
-      <div class="hero-text">
-        <h1 class="hero-title">Yitao He</h1>
-        <p class="hero-subtitle">Systems Engineer · Distributed Systems · Reliability</p>
-        <p class="hero-body">
-          Hello and welcome. Engineer at heart, outdoor enthusiast by choice — building reliable systems while enjoying poker, fishing, and nature.
-        </p>
+      <div class="hero-text overview-content">
+        <p>Yitao He<br>
+Systems Engineer · Distributed Systems · Reliability</p>
+<p>Hello and welcome.<br>
+Engineer at heart, outdoor enthusiast by choice — building reliable systems while enjoying poker, fishing, and nature.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://github.com/yitaohe98">GitHub</a></li>
+<li><a href="#" onclick="copyEmail(); return false;">Email</a></li>
+</ul>
+<h2 id="timeline">Timeline</h2>
+<p>Shanghai → Champaign → San Jose → Shanghai</p>
+<h2 id="education">Education</h2>
+<ul>
+<li>Shanghai Jiao Tong University (BS, 2016–2020)</li>
+<li>University of Illinois Urbana-Champaign (MS, 2021–2022)</li>
+</ul>
+<h2 id="career">Career</h2>
+<ul>
+<li>Bank software developer, Bank of Shanghai, Shanghai (2020–2021)</li>
+<li>Cybersecurity backend software developer, Zscaler, San Jose (2023–2026)</li>
+<li>Freelance developer (now)</li>
+</ul>
 
-        <div class="hero-links">
-          <a href="#" class="button button-primary">GitHub</a>
-          <a href="#" class="button button-ghost">Email</a>
-        </div>
-
-        <div class="hero-meta">
-          <p>Shanghai → Champaign → San Jose → Shanghai</p>
-        </div>
       </div>
 
       <div class="hero-panel">
@@ -66,7 +96,7 @@
           
             
               <article class="card card-post">
-  <a href="/blogs/distributed-rate-limiter-design/" class="card-link">
+  <a href="/blogs/example-post-1/" class="card-link">
     <div class="card-body">
       <div class="card-meta">
         
@@ -75,9 +105,9 @@
         <span class="meta-dot">·</span>
         <time datetime="2026-02-24">2026-02-24</time>
       </div>
-      <h2 class="card-title">Distributed Rate Limiter Design</h2>
+      <h2 class="card-title">Example post 1</h2>
       
-        <p class="card-description">Step-by-step breakdown of a distributed rate limiter for reliable backend systems.</p>
+        <p class="card-description">Placeholder post, to be filled in.</p>
       
       
         <span class="badge badge-accent">Featured</span>
@@ -89,7 +119,7 @@
 
             
               <article class="card card-post">
-  <a href="/blogs/migration-checklist/" class="card-link">
+  <a href="/blogs/example-post-2/" class="card-link">
     <div class="card-body">
       <div class="card-meta">
         
@@ -98,9 +128,9 @@
         <span class="meta-dot">·</span>
         <time datetime="2026-02-24">2026-02-24</time>
       </div>
-      <h2 class="card-title">Migration Checklist</h2>
+      <h2 class="card-title">Example post 2</h2>
       
-        <p class="card-description">Personal checklist and lessons learned from city-to-city moves.</p>
+        <p class="card-description">Placeholder post, to be filled in.</p>
       
       
         <span class="badge badge-accent">Featured</span>
@@ -113,26 +143,6 @@
             
           
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-secondary">
-    <div class="container two-column">
-      <div>
-        <h2>Education</h2>
-        <ul class="list">
-          <li>Shanghai Jiao Tong University (BS, 2016–2020)</li>
-          <li>University of Illinois Urbana-Champaign (MS, 2021–2022)</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Career</h2>
-        <ul class="list">
-          <li>Bank software developer, Bank of Shanghai, Shanghai (2020–2021)</li>
-          <li>Cybersecurity backend software developer, Zscaler, San Jose (2023–2026)</li>
-          <li>Freelance developer (now)</li>
-        </ul>
       </div>
     </div>
   </section>
