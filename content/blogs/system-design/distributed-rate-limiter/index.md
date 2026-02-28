@@ -1,12 +1,22 @@
-+++
-title = "分布式限流器设计"
-date = 2026-02-24T00:00:00Z
-description = "一步一步拆解如何设计一个可扩展的分布式限流系统。"
-primary_category = "system-design"
-categories = ["system-design"]
-tags = ["redis", "distributed-systems"]
-draft = true
-+++
+---
+title: "Distributed Rate Limiter Design"
+date: 2026-02-24
+description: "Step-by-step breakdown of a distributed rate limiter for reliable backend systems."
+primary_category: "system-design"
+categories: ["system-design"]
+tags: ["redis", "distributed-systems"]
+draft: false
+featured: true
+---
 
-这里是关于分布式限流器设计的示例文章正文（占位）。后续可以替换为完整的中文长文，包含问题建模、流量特征、算法选择以及部署细节。
+_Placeholder content._
+
+This post will walk through the end-to-end design of a distributed rate limiter, including:
+
+- Core requirements and constraints
+- Token bucket vs leaky bucket trade-offs
+- Redis-based implementations and failure modes
+- Operational considerations and reliability concerns
+
+Content to be filled in with detailed Chinese-first technical writing.
 

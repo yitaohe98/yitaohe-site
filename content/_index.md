@@ -1,8 +1,9 @@
-+++
-title = "yitaohe.com"
-description = "Technical blog and overview for Yitao He."
-draft = false
-+++
+---
+title: "Home"
+description: "Personal site of Yitao He."
+---
 
-Welcome. This site is powered by Hugo and serves as the long-term home for my technical writing and personal notes.
+Welcome to the personal site of **Yitao He**.
+
+Visit the [Overview](/overview/) page to quickly learn who I am and what I work on, or head to [Blogs](/blogs/) to read technical articles and notes.
 

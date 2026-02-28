@@ -1,13 +1,14 @@
-+++
-title = "留言与联系"
-description = "如何联系我，反馈问题或想法。"
-draft = false
-+++
+---
+title: "Comments & Contact"
+description: "How to reach out or share feedback about posts."
+---
 
-目前 v1.0 不提供在线评论系统。
+For v1.0, this page is a static placeholder instead of an interactive comment system.
 
-如果你有任何想法、问题或合作机会，可以通过以下方式联系我：
+If you have feedback, questions, or ideas:
 
-- GitHub: https://github.com/yitaohe98
-- Email: mailto:jackh98zz@gmail.com
+- Open an issue on GitHub (placeholder link).
+- Send me an email (placeholder address).
+
+In future versions, this page may evolve into a lightweight comment or discussion system while keeping the static-first architecture.
 

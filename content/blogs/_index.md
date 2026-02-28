@@ -1,8 +1,9 @@
-+++
-title = "博客"
-description = "技术博客与长期笔记。"
-draft = false
-+++
+---
+title: "Blogs"
+description: "Technical articles, notes, and reflections by Yitao He."
+---
 
-这里是中文优先的技术博客。文章按照类别组织，例如系统设计、后端、投资、生活和随笔等。
+This is the main blog section for long-form technical deep dives, system design notes, and personal reflections.
+
+Posts are grouped by category (for example, `system-design`, `backend`, `life`) but all appear here in reverse chronological order.
 
