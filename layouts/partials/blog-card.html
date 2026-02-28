@@ -1,11 +1,21 @@
-<article class="card">
-  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-  <p class="muted">{{ .Date.Format "2006-01-02" }}</p>
-  {{ with .Params.description }}
-  <p>{{ . }}</p>
-  {{ end }}
-  {{ with .Params.categories }}
-  <p class="muted">分类：{{ delimit . ", " }}</p>
-  {{ end }}
+<article class="card card-post">
+  <a href="{{ .RelPermalink }}" class="card-link">
+    <div class="card-body">
+      <div class="card-meta">
+        {{ with .Params.primary_category }}
+          <span class="badge">{{ . }}</span>
+        {{ end }}
+        <span class="meta-dot">·</span>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      </div>
+      <h2 class="card-title">{{ .Title }}</h2>
+      {{ with .Params.description }}
+        <p class="card-description">{{ . }}</p>
+      {{ end }}
+      {{ if .Params.featured }}
+        <span class="badge badge-accent">Featured</span>
+      {{ end }}
+    </div>
+  </a>
 </article>
 

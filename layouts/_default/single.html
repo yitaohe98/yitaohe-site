@@ -1,25 +1,28 @@
 {{ define "main" }}
-  <article>
-    <h1>{{ .Title }}</h1>
-    <p class="muted">{{ .Date.Format "2006-01-02" }}</p>
+  <article class="section section-article">
+    <div class="container">
+      <header class="article-header">
+        <div class="article-meta">
+          {{ with .Params.primary_category }}
+            <span class="badge">{{ . }}</span>
+          {{ end }}
+          <span class="meta-dot">·</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        </div>
+        <h1 class="article-title">{{ .Title }}</h1>
+        {{ with .Params.description }}
+          <p class="article-description">{{ . }}</p>
+        {{ end }}
+      </header>
 
-    {{ with .Params.description }}
-      <p class="sub">{{ . }}</p>
-    {{ end }}
-
-    {{ with .TableOfContents }}
-      <div class="card">
-        <strong>目录</strong>
-        {{ . }}
+      <div class="article-toc">
+        {{ .TableOfContents }}
       </div>
-    {{ end }}
 
-    {{ .Content }}
-
-    <p class="muted">
-      {{ with .Params.categories }}分类：{{ delimit . ", " }}{{ end }}
-      {{ with .Params.tags }}<br>标签：{{ delimit . ", " }}{{ end }}
-    </p>
+      <div class="article-content">
+        {{ .Content }}
+      </div>
+    </div>
   </article>
 {{ end }}
 

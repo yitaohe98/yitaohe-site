@@ -1,9 +1,14 @@
-<header class="topbar">
-  <span class="site-name"><a href="/overview/">Yitao He</a></span>
-  <nav>
-    <a href="/overview/" data-section="overview">Overview</a>
-    <a href="/blogs/" data-section="blogs">Blogs</a>
-    <a href="/comments/" data-section="comments">Comments</a>
-  </nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <span class="brand-title">Yitao He</span>
+      <span class="brand-subtitle">Systems Engineer · Distributed Systems · Reliability</span>
+    </a>
+    <nav class="nav">
+      <a href="/overview/" class="nav-link{{ if eq .Section "overview" }} nav-link-active{{ end }}">Overview</a>
+      <a href="/blogs/" class="nav-link{{ if eq .Section "blogs" }} nav-link-active{{ end }}">Blogs</a>
+      <a href="/comments/" class="nav-link{{ if eq .Section "comments" }} nav-link-active{{ end }}">Comments</a>
+    </nav>
+  </div>
 </header>
 

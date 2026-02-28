@@ -1,8 +1,21 @@
-{{- $title := .Title | default .Site.Title -}}
-{{- $description := .Params.description | default .Site.Params.description -}}
-<meta name="description" content="{{ $description }}">
-<meta property="og:title" content="{{ $title }}">
-<meta property="og:description" content="{{ $description }}">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ .Permalink }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ with .Title }}{{ . }} · {{ end }}yitaohe.com</title>
+  {{ with .Description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="yitaohe.com" />
+  <meta property="og:title" content="{{ .Title }}" />
+  {{ with .Description }}
+    <meta property="og:description" content="{{ . }}" />
+  {{ end }}
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="yitaohe.com RSS" />
+</head>
 

@@ -1,11 +1,31 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ with .Content }}
-    <div class="sub">{{ . }}</div>
-  {{ end }}
+  <section class="section">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ with .Content }}
+          <div class="page-intro">
+            {{ . }}
+          </div>
+        {{ end }}
+      </header>
 
-  {{ range .Pages.ByDate.Reverse }}
-    {{ partial "blog-card.html" . }}
-  {{ end }}
+      {{ if .IsHome }}
+        <div class="grid grid-posts">
+          {{ range first 6 (where .Site.RegularPages "Section" "blogs") }}
+            {{ partial "blog-card.html" . }}
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="grid grid-posts">
+          {{ range .Paginator.Pages }}
+            {{ partial "blog-card.html" . }}
+          {{ end }}
+        </div>
+
+        {{ template "_internal/pagination.html" . }}
+      {{ end }}
+    </div>
+  </section>
 {{ end }}
 
