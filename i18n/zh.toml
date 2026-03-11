@@ -1,0 +1,25 @@
+# UI strings for Chinese (lang key: zh) — used when .Lang is "zh" (e.g. /zh/ pages)
+
+[brand]
+tagline = "阿滔的个人网站"
+
+[nav]
+home = "首页"
+overview = "概览"
+blogs = "博客"
+comments = "留言"
+switchLanguage = "翻译/Language"
+
+[overview]
+featured = "精选文章"
+education = "教育"
+career = "工作"
+
+[lang]
+en = "EN"
+zh-cn = "CN"
+
+[langName]
+zh = "中文 - Chinese"
+zh-cn = "中文 - Chinese"
+en = "英文 - English"
