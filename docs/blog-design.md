@@ -142,15 +142,163 @@ Phase A gives the biggest improvement (category browsing); B improves reading; C
 
 ---
 
-## 10. Open questions
+## 10. Decisions (open questions resolved)
 
-- **Category display names:** Use slug (e.g. `system-design`) or human label (e.g. “System design”)? If human: store in i18n or in a data file (e.g. `data/categories.yaml`) keyed by slug.
-- **Tag cloud vs list:** Tags as a simple list of links vs. weighted cloud; list is simpler and sufficient for v1.
-- **Sticky ToC:** Worth it for long posts on desktop? Can be added in a later iteration.
+- **Category display names:** Use **human labels** (e.g. “System design” instead of slug `system-design`). Store labels in a data file (e.g. `data/categories.yaml`) keyed by slug, with optional i18n override so EN/中文 can show different labels.
+- **Tag filter:** Use a **tag cloud** (tags shown with relative emphasis, e.g. by count; link each to `/tags/{tag}/`).
+- **Sticky ToC:** Defer; can be added later for long posts on desktop.
 
 ---
 
-## 11. References
+## 11. Authoring posts: text, code blocks, and images
+
+You write each post in **Markdown** (one file per post: `content/{lang}/blogs/{category}/{slug}/index.md`). The same file can mix paragraphs, headings, code blocks, and images.
+
+### 11.1 Text
+
+Use normal Markdown:
+
+- **Paragraphs** — blank line between paragraphs.
+- **Headings** — `## Section`, `### Subsection` (used for ToC).
+- **Lists** — `- item` or `1. item`.
+- **Links** — `[text](url)`.
+- **Bold / italic** — `**bold**`, `*italic*`.
+
+Hugo’s Goldmark renderer turns this into HTML. No extra setup.
+
+### 11.2 Code blocks
+
+Use **fenced code blocks** with an optional language tag so Hugo can apply syntax highlighting:
+
+````markdown
+```python
+def hello():
+    print("Hello")
+```
+
+```bash
+npm install
+```
+````
+
+- Use three backticks, then the language (e.g. `python`, `bash`, `go`, `json`, `text`), then the code, then three backticks.
+- Hugo uses Chromastique for highlighting; no extra config needed. If a block has no language, it’s rendered as plain text with monospace styling.
+
+### 11.3 Images
+
+Two ways to include images; pick one per image.
+
+**Option A — Page bundle (recommended for post-specific images)**
+
+Put the image in the **same folder** as the post’s `index.md`:
+
+```text
+content/zh/blogs/system-design/my-post/
+  index.md
+  diagram.png
+  screenshot.png
+```
+
+In `index.md`, reference them with a **relative path**:
+
+```markdown
+![Diagram showing the flow](diagram.png)
+
+Some text between images.
+
+![Screenshot of the UI](screenshot.png)
+```
+
+- Pros: image lives with the post; easy to move or copy the post; works with multilingual (each language folder can have its own images).
+- No change to `config.toml`; Hugo serves page-bundle resources automatically.
+
+**Option B — Site-wide static images**
+
+Put the image in `static/`, e.g. `static/images/blog/my-post/diagram.png`. In the post:
+
+```markdown
+![Diagram](/images/blog/my-post/diagram.png)
+```
+
+- Use when the same image is shared across posts or pages. Path is absolute from site root.
+
+**Best practices**
+
+- Use descriptive **alt text** in the brackets (`![Alt text here](path)`) for accessibility and SEO.
+- Prefer **reasonable size** (e.g. max width 1200–1600 px) so the built site stays fast; resize or compress before committing if needed.
+
+### 11.4 Mixed content example
+
+A single post can look like this:
+
+```markdown
+---
+title: "My Post"
+date: 2026-02-27
+description: "Short summary."
+primary_category: "system-design"
+categories: ["system-design"]
+tags: ["redis", "architecture"]
+draft: false
+---
+
+## Introduction
+
+Some paragraph with **bold** and a [link](https://example.com).
+
+## Architecture
+
+Here is a diagram:
+
+![Architecture diagram](diagram.png)
+
+We use the following code:
+
+```go
+func main() {
+    fmt.Println("hello")
+}
+```
+
+## Conclusion
+
+Final thoughts.
+```
+
+Text, images, and code blocks are all in one file; Hugo renders the whole thing.
+
+---
+
+## 12. Primary content editing: Decap CMS
+
+**Decap CMS** (formerly Netlify CMS) is the **main way** to create, edit, and delete blog posts (and optionally other content). Authors use the web UI at `/admin/`; changes are written to the Git repo and the site rebuilds on push.
+
+### Why Decap as the primary workflow
+
+- **Git-based** — All edits become commits in the repository. Content stays in `content/`, versioned and diffable; no database.
+- **Static-first unchanged** — Hugo builds from the same Markdown; Decap is the editor, not a separate system.
+- **Easier editing** — Form fields for front matter (title, date, description, category, tags, draft, featured); editor for body (Markdown or rich); image upload into the post folder (page bundle).
+- **Works with Cloudflare Pages** — Admin is static files under `static/admin/`. GitHub backend: log in with GitHub, Decap commits; Cloudflare rebuilds on deploy.
+
+### What’s in place
+
+1. **Admin UI** — Decap’s `index.html` and `config.yml` live under `static/admin/`. The CMS is available at `https://www.yitaohe.com/admin/` (or your domain).
+2. **GitHub backend** — Users log in with GitHub; Decap uses the GitHub API to read and write the repo. Only users with write access to the repo can create or edit content.
+3. **Config** — `config.yml` defines collections for blog posts (e.g. one per language: EN and 中文), with fields matching the content model (§5) and path/slug rules so new posts follow `content/{lang}/blogs/{category}/{slug}/`.
+
+### Multilingual
+
+One collection per language (“Blog (EN)”, “Blog (中文)”) with `folder` pointing at `content/en/blogs/` and `content/zh/blogs/` respectively. Create or edit posts in the chosen language; translation sync (e.g. stub + draft in the other language) is a separate workflow (see [Translation](translation.md)).
+
+### Operational notes
+
+- **Preview** — Full live preview of the built Hugo page can be added later; typically authors save and check the site after deploy.
+- **Auth** — Access to `/admin/` is effectively “who can log in with GitHub and has repo write access.” Optionally protect `/admin/` with Cloudflare Access (or similar) for an extra layer.
+- **Content structure** — Collection `path` and `slug` in `config.yml` enforce the correct folder and URL shape (e.g. `blogs/system-design/my-post`).
+
+---
+
+## 13. References
 
 - [v1.0 PRD](v1.0prd.md) — §4 URL structure, §5 content model, §6.2–6.3 blog listing and post, §8 SEO
 - [Architecture](architecture.md) — Hugo, content/zh|en, layouts, partials
