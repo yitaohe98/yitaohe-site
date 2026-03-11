@@ -3,7 +3,10 @@
     <div class="card-body">
       <div class="card-meta">
         {{ with .Params.primary_category }}
-          <span class="badge">{{ . }}</span>
+          {{ $cat := index $.Site.Data.categories . }}
+          {{ $label := . }}
+          {{ if $cat }}{{ if eq $.Lang "zh" }}{{ $label = $cat.name_zh }}{{ else }}{{ $label = $cat.name }}{{ end }}{{ end }}
+          <span class="badge">{{ $label }}</span>
         {{ end }}
         <span class="meta-dot">·</span>
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
@@ -13,7 +16,7 @@
         <p class="card-description">{{ . }}</p>
       {{ end }}
       {{ if .Params.featured }}
-        <span class="badge badge-accent">Featured</span>
+        <span class="badge badge-accent">{{ i18n "blogs.featured" }}</span>
       {{ end }}
     </div>
   </a>

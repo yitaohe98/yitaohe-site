@@ -23,3 +23,13 @@ zh-cn = "CN"
 zh = "中文 - Chinese"
 zh-cn = "中文 - Chinese"
 en = "英文 - English"
+
+[blogs]
+subtitle = "技术文章、系统设计与个人随笔。"
+all = "全部"
+empty = "暂无文章。"
+readingTime = "%d 分钟阅读"
+previous = "上一篇"
+next = "下一篇"
+tocTitle = "目录"
+featured = "精选"

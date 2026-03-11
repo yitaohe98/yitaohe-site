@@ -4,10 +4,19 @@
       <header class="article-header">
         <div class="article-meta">
           {{ with .Params.primary_category }}
-            <span class="badge">{{ . }}</span>
+            {{ $cat := index .Site.Data.categories . }}
+            {{ $label := . }}
+            {{ if $cat }}
+              {{ if eq $.Lang "zh" }}{{ $label = $cat.name_zh }}{{ else }}{{ $label = $cat.name }}{{ end }}
+            {{ end }}
+            <a href="{{ printf "categories/%s/" . | relLangURL }}" class="badge badge-link">{{ $label }}</a>
           {{ end }}
           <span class="meta-dot">·</span>
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+          {{ with .ReadingTime }}
+            <span class="meta-dot">·</span>
+            <span class="article-reading-time">{{ printf (i18n "blogs.readingTime") . }}</span>
+          {{ end }}
         </div>
         <h1 class="article-title">{{ .Title }}</h1>
         {{ with .Params.description }}
@@ -15,14 +24,39 @@
         {{ end }}
       </header>
 
-      <div class="article-toc">
-        {{ .TableOfContents }}
-      </div>
+      {{ if and .Fragments .Fragments.Headings (ge (len .Fragments.Headings) 2) }}
+        <div class="article-toc">
+          <h2 class="toc-title">{{ i18n "blogs.tocTitle" }}</h2>
+          {{ .TableOfContents }}
+        </div>
+      {{ end }}
 
       <div class="article-content">
         {{ .Content }}
       </div>
+
+      {{ if or .Params.categories .Params.tags }}
+        <div class="article-taxonomies">
+          {{ with .Params.primary_category }}
+            {{ $cat := index $.Site.Data.categories . }}
+            {{ $label := . }}
+            {{ if $cat }}{{ if eq $.Lang "zh" }}{{ $label = $cat.name_zh }}{{ else }}{{ $label = $cat.name }}{{ end }}{{ end }}
+            <a href="{{ printf "categories/%s/" . | relLangURL }}" class="badge badge-link">{{ $label }}</a>
+          {{ end }}
+          {{ range .Params.tags }}
+            <a href="{{ printf "tags/%s/" . | relLangURL }}" class="badge badge-link">{{ . }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      <nav class="article-nav">
+        {{ with .PrevInSection }}
+          <a href="{{ .RelPermalink }}" class="article-nav-link article-nav-prev">{{ i18n "blogs.previous" }}: {{ .Title }}</a>
+        {{ end }}
+        {{ with .NextInSection }}
+          <a href="{{ .RelPermalink }}" class="article-nav-link article-nav-next">{{ i18n "blogs.next" }}: {{ .Title }}</a>
+        {{ end }}
+      </nav>
     </div>
   </article>
 {{ end }}
-

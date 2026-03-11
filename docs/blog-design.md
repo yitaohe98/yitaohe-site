@@ -9,7 +9,7 @@ Design for further implementing the blog experience on yitaohe.com. Aligns with 
 ### Goals
 
 - **Discoverability:** Readers can browse all posts, filter by category or tag, and move between listing and post smoothly.
-- **Readability:** Post pages support long-form reading (ToC when useful, code highlighting, clear typography) and optional prev/next.
+- **Readability:** Post pages support long-form reading (code highlighting, clear typography). Optional: Table of Contents (for long posts), Previous/Next navigation.
 - **Consistency:** Same content model and URL rules across EN/中文; category and tag pages feel part of the same blog.
 - **Extensibility:** Add categories/tags and new post types without reworking the design.
 
@@ -29,9 +29,9 @@ Design for further implementing the blog experience on yitaohe.com. Aligns with 
 | **6.2** Tag filtering | Hugo generates `/tags/{tag}/` | No tag filter UI or links from listing/cards |
 | **6.2** Pagination | ✅ `_internal/pagination` | May need styling and i18n for “Next/Previous” |
 | **6.3** Title, description | ✅ | — |
-| **6.3** Table of Contents | ✅ Always rendered | Should show only for long posts (e.g. headings count) |
+| **6.3** Table of Contents | ✅ Always rendered | Optional; show only for long posts (e.g. headings count) if implemented |
 | **6.3** Code syntax highlighting | Default Hugo/Chromastique | Confirm theme and language detection |
-| **6.3** Prev/Next navigation | ❌ | Not implemented |
+| **6.3** Prev/Next navigation | ❌ | Optional; not yet implemented |
 | **6.3** SEO meta | ✅ head-meta | — |
 | **5** Front matter (primary_category, etc.) | ✅ | — |
 | Categories not top-level nav | ✅ | Keep; expose via blog listing / filters only |
@@ -41,7 +41,7 @@ Design for further implementing the blog experience on yitaohe.com. Aligns with 
 ## 3. User flows
 
 1. **Land on blog listing** → See latest posts (cards: title, description, category, date). Optionally filter by category or tag.
-2. **Click a post** → Read full post; see ToC if long; use prev/next to move between posts.
+2. **Click a post** → Read full post (optional: ToC for long posts, prev/next links).
 3. **From a post** → Click category or tag → See taxonomy list (all posts in that category/tag). From there, back to full listing or another post.
 4. **From overview** → “Featured posts” already link to posts; no change needed.
 
@@ -86,20 +86,20 @@ No new required front matter for the improvements below.
 
 ## 6. Post (single) page design
 
-### 6.1 Table of Contents
+### 6.1 Table of Contents (optional)
 
-- **Rule:** Render ToC only when the post has more than N headings (e.g. 2 or 3). Otherwise hide the ToC block.
+- **Optional feature.** If implemented: render ToC only when the post has more than N headings (e.g. 2 or 3); otherwise hide the ToC block.
 - **Implementation:** Use `.TableOfContents` in the template and conditionally wrap it based on a count of headings (e.g. scan `.Content` or use a Hugo variable if available).
-- **Placement:** Keep above content; consider making it sticky on large screens (optional).
+- **Placement:** Above content; optionally sticky on large screens.
 
 ### 6.2 Code blocks
 
 - **Requirement:** Syntax highlighting (PRD 6.3). Hugo’s default (Chromastique) is sufficient; ensure no custom CSS overrides break it. Optionally document “use fenced code blocks with language tag” in authoring guide.
 - **No new dependencies** unless you later switch to a client-side highlighter (not recommended for static).
 
-### 6.3 Previous / Next navigation
+### 6.3 Previous / Next navigation (optional)
 
-- **Scope:** Same section (blogs), same language. Order: by date (asc for next, desc for prev).
+- **Optional feature.** If implemented: same section (blogs), same language; order by date (asc for next, desc for prev).
 - **Placement:** After the article body, above or beside footer. “Previous: Title” / “Next: Title” with links; disable or hide if none.
 - **Implementation:** Use Hugo’s `.PrevInSection` / `.NextInSection` (or equivalent for the blogs section).
 
@@ -134,7 +134,7 @@ Suggested order so each step is shippable:
 | Phase | Scope | Deliverable |
 |-------|--------|--------------|
 | **A** | Listing: category filter + taxonomy layout | Category pills/links on blogs list; taxonomy list uses same card grid; pagination styled |
-| **B** | Post: conditional ToC, prev/next | ToC only when ≥N headings; prev/next links below content |
+| **B** | Post: optional ToC, optional prev/next | If implemented: ToC when ≥N headings; prev/next links below content |
 | **C** | Listing: tag filter (optional) | Tag links or cloud on blogs list; tag taxonomy uses same grid |
 | **D** | i18n and polish | “Next/Previous”, “All”, category names in i18n; reading time and category/tag links on post |
 

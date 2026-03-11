@@ -2,11 +2,49 @@
   <section class="section">
     <div class="container">
       <header class="page-header">
-        <h1 class="page-title">Blogs</h1>
-        <p class="page-subtitle">
-          Technical articles, system design notes, and personal reflections.
-        </p>
+        <h1 class="page-title">{{ i18n "nav.blogs" }}</h1>
+        <p class="page-subtitle">{{ i18n "blogs.subtitle" }}</p>
       </header>
+
+      {{ $currentLang := .Lang }}
+      {{ $categoriesWithPosts := slice }}
+      {{ range $term, $pages := .Site.Taxonomies.categories }}
+        {{ $inLang := where $pages "Lang" $currentLang }}
+        {{ if gt (len $inLang) 0 }}
+          {{ $categoriesWithPosts = $categoriesWithPosts | append $term }}
+        {{ end }}
+      {{ end }}
+      {{ $categoriesWithPosts = sort $categoriesWithPosts }}
+
+      {{ $tagsWithPosts := slice }}
+      {{ range $term, $pages := .Site.Taxonomies.tags }}
+        {{ $inLang := where $pages "Lang" $currentLang }}
+        {{ if gt (len $inLang) 0 }}
+          {{ $tagsWithPosts = $tagsWithPosts | append (dict "term" $term "count" (len $inLang)) }}
+        {{ end }}
+      {{ end }}
+
+      <div class="blog-filters">
+        <div class="filter-pills">
+          <a href="{{ "blogs/" | relLangURL }}" class="filter-pill filter-pill-active">{{ i18n "blogs.all" }}</a>
+          {{ range $categoriesWithPosts }}
+            {{ $cat := index $.Site.Data.categories . }}
+            {{ $label := "" }}
+            {{ if $cat }}
+              {{ if eq $currentLang "zh" }}{{ $label = $cat.name_zh }}{{ else }}{{ $label = $cat.name }}{{ end }}
+            {{ end }}
+            {{ if not $label }}{{ $label = . }}{{ end }}
+            <a href="{{ printf "categories/%s/" . | relLangURL }}" class="filter-pill">{{ $label }}</a>
+          {{ end }}
+        </div>
+        {{ if gt (len $tagsWithPosts) 0 }}
+          <div class="tag-cloud">
+            {{ range sort $tagsWithPosts "term" }}
+              <a href="{{ printf "tags/%s/" .term | relLangURL }}" class="tag-cloud-link">{{ .term }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
 
       <div class="grid grid-posts">
         {{ range .Paginator.Pages }}
@@ -14,8 +52,13 @@
         {{ end }}
       </div>
 
-      {{ template "_internal/pagination.html" . }}
+      {{ if not .Paginator.Pages }}
+        <p class="blogs-empty">{{ i18n "blogs.empty" }}</p>
+      {{ end }}
+
+      {{ if gt .Paginator.TotalPages 1 }}
+        {{ template "_internal/pagination.html" . }}
+      {{ end }}
     </div>
   </section>
 {{ end }}
-

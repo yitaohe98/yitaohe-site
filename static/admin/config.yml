@@ -1,0 +1,79 @@
+# Decap CMS config for yitaohe.com
+# See https://decapcms.org/docs/configuration-options/
+#
+# IMPORTANT: Replace backend.repo with your GitHub repo (e.g. yitaohe98/yitaohe-site).
+# For GitHub auth on Cloudflare Pages: you need an OAuth proxy. Options:
+# - Use the "local_backend" for local dev (see below).
+# - For production: run a GitHub OAuth proxy (e.g. netlify-cms-github-oauth-provider)
+#   or use a service that provides one; set the proxy URL in your build env and
+#   reference it in backend (see Decap docs for "backend" and "proxy").
+# - Alternatively, deploy /admin to Netlify (which has built-in GitHub auth) and
+#   point it at the same repo.
+
+backend:
+  name: github
+  repo: yitaohe98/yitaohe-site   # CHANGE to your repo: owner/repo
+  branch: main
+  base_url: https://www.yitaohe.com
+
+# Uncomment for local dev (no GitHub login; edits go to local files):
+# local_backend: true
+
+locale: en
+site_url: https://www.yitaohe.com
+display_url: https://www.yitaohe.com
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+search: true
+
+collections:
+  - name: blog_en
+    label: Blog (EN)
+    folder: "content/en/blogs"
+    create: true
+    slug: "{{primary_category}}/{{fields.slug}}/index"
+    extension: md
+    format: frontmatter
+    frontmatter_delimiter: "---"
+    identifier_field: title
+    summary: "{{title}} · {{date}}"
+    delete: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "URL slug, e.g. my-new-post (English, no spaces)" }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Description, name: description, widget: string }
+      - { label: Primary Category, name: primary_category, widget: select, options: [system-design, life, backend, investing, notes] }
+      - { label: Categories, name: categories, widget: list, default: ["system-design"], summary: "{{fields.categories}}" }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Translation Key, name: translationKey, widget: string, required: false, hint: "Stable id to pair with other languages" }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: blog_zh
+    label: "Blog (中文)"
+    folder: "content/zh/blogs"
+    create: true
+    slug: "{{primary_category}}/{{fields.slug}}/index"
+    extension: md
+    format: frontmatter
+    frontmatter_delimiter: "---"
+    identifier_field: title
+    summary: "{{title}} · {{date}}"
+    delete: true
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "URL slug, e.g. my-new-post (英文)" }
+      - { label: 发布日期, name: date, widget: datetime }
+      - { label: 描述, name: description, widget: string }
+      - { label: 主分类, name: primary_category, widget: select, options: [system-design, life, backend, investing, notes] }
+      - { label: 分类, name: categories, widget: list, default: ["system-design"] }
+      - { label: 标签, name: tags, widget: list, required: false }
+      - { label: 草稿, name: draft, widget: boolean, default: false }
+      - { label: 精选, name: featured, widget: boolean, default: false }
+      - { label: Translation Key, name: translationKey, widget: string, required: false }
+      - { label: 正文, name: body, widget: markdown }

@@ -23,3 +23,13 @@ zh-cn = "CN"
 zh = "Chinese"
 zh-cn = "Chinese"
 en = "English"
+
+[blogs]
+subtitle = "Technical articles, system design notes, and personal reflections."
+all = "All"
+empty = "No posts yet."
+readingTime = "%d min read"
+previous = "Previous"
+next = "Next"
+tocTitle = "Contents"
+featured = "Featured"

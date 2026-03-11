@@ -1,0 +1,17 @@
+# Human-readable category labels keyed by slug. Use in templates for EN/ZH.
+# For i18n use .name (default) or .name_zh when .Lang is "zh".
+system-design:
+  name: "System design"
+  name_zh: "系统设计"
+life:
+  name: "Life"
+  name_zh: "生活"
+backend:
+  name: "Backend"
+  name_zh: "后端"
+investing:
+  name: "Investing"
+  name_zh: "投资"
+notes:
+  name: "Notes"
+  name_zh: "笔记"

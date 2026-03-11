@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <section class="section">
+    <div class="container">
+      {{ $term := .Data.Term }}
+      {{ $cat := index .Site.Data.categories $term }}
+      {{ $label := $term }}
+      {{ if $cat }}
+        {{ if eq .Lang "zh" }}{{ $label = $cat.name_zh }}{{ else }}{{ $label = $cat.name }}{{ end }}
+      {{ end }}
+
+      <header class="page-header">
+        <h1 class="page-title">{{ $label }}</h1>
+        <p class="page-subtitle">{{ i18n "nav.blogs" }} · {{ $label }}</p>
+      </header>
+
+      <div class="grid grid-posts">
+        {{ range .Paginator.Pages }}
+          {{ partial "blog-card.html" . }}
+        {{ end }}
+      </div>
+
+      {{ if not .Paginator.Pages }}
+        <p class="blogs-empty">{{ i18n "blogs.empty" }}</p>
+      {{ end }}
+
+      {{ if gt .Paginator.TotalPages 1 }}
+        {{ template "_internal/pagination.html" . }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
