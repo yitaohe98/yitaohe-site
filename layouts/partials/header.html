@@ -2,7 +2,7 @@
   <div class="container header-inner">
     <a class="brand" href="{{ .Site.Home.Permalink }}">
       <span class="brand-title">Yitao He</span>
-      <span class="brand-subtitle">Systems Engineer · Distributed Systems · Reliability</span>
+      <span class="brand-subtitle">{{ i18n "brand.tagline" }}</span>
     </a>
     <nav class="nav">
       <a href="{{ "overview/" | relLangURL }}" class="nav-link{{ if eq .Section "overview" }} nav-link-active{{ end }}">{{ i18n "nav.overview" }}</a>

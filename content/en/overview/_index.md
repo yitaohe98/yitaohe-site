@@ -4,11 +4,15 @@ description: "Personal overview and background of Yitao He."
 translationKey: "overview"
 ---
 
-Yitao He  
-Systems Engineer · Distributed Systems · Reliability
+This is a small space on the internet about me. Technology changes quickly, but ideas and thoughtful writing tend to last longer. I hope this space can persist and accumulate over time.
 
-Hello and welcome.  
-Engineer at heart, outdoor enthusiast by choice — building reliable systems while enjoying poker, fishing, and nature.
+I grew up in Shanghai and later studied computer science in the US.
+
+Over the years I've worked on backend infrastructure, distributed systems, and reliability problems.
+
+I enjoy solving problems, and I tend to approach them in an engineer's way — breaking things down, understanding how they work, and explaining them clearly.
+
+Outside of engineering, I spend time on outdoor activities, playing poker, and exploring new ideas on the internet.
 
 ## Links
 

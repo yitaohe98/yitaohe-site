@@ -4,6 +4,6 @@ description: "Yitao He 个人站点。"
 translationKey: "home"
 ---
 
-欢迎来到 **Yitao He** 的个人站点。
+这是我在互联网上的小角落，记录系统、技术与一路所学。
 
-前往 [概览](/overview/) 了解我与我的方向，或到 [博客](/blogs/) 阅读技术文章与笔记。
+前往 [概览](/overview/) 了解更多，或到 [博客](/blogs/) 阅读文章与笔记。

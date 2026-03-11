@@ -1,5 +1,8 @@
 # UI strings for English
 
+[brand]
+tagline = "This is my corner of the internet. I write about systems, technology, and the things I'm learning along the way."
+
 [nav]
 home = "Home"
 overview = "Overview"

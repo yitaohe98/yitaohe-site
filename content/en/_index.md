@@ -4,6 +4,6 @@ description: "Personal site of Yitao He."
 translationKey: "home"
 ---
 
-Welcome to the personal site of **Yitao He**.
+This is my corner of the internet. I write about systems, technology, and the things I'm learning along the way.
 
-Visit the [Overview](/en/overview/) page to learn who I am and what I work on, or head to [Blogs](/en/blogs/) to read technical articles and notes.
+Visit [Overview](/en/overview/) to learn more, or head to [Blogs](/en/blogs/) to read articles and notes.
