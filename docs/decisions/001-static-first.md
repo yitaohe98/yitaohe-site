@@ -15,6 +15,4 @@ The PRD requires:
 ## Consequences
 
 - Pages are generated at build time and served from a CDN.
-- Dynamic features (views, likes, comments) must be implemented via serverless or third-party services in later versions.*** End Patch"""
-}])
-} -->
+- Dynamic features (views, likes, comments) must be implemented via serverless or third-party services in later versions.
