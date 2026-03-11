@@ -6,7 +6,7 @@ translationKey: "overview"
 
 This is a small space on the internet about me. Technology changes quickly, but ideas and thoughtful writing tend to last longer. I hope this space can persist and accumulate over time.
 
-I grew up in Shanghai and later studied computer science in the US.
+I grew up in Shanghai and later studied and worked in computer science in the Bay Area, United States.
 
 Over the years I've worked on backend infrastructure, distributed systems, and reliability problems.
 
