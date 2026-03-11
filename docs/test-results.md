@@ -1,5 +1,7 @@
 # Test execution report
 
+**Snapshot** — Results from the last automated run. Re-run checks and update this file when verifying releases.
+
 Automated checks run against the built site (no browser). Manual tests still required for N-01, O-05, B-01–B-05, P-02–P-04, C-01, F-01–F-04, L-01–L-02.
 
 **Build:** `hugo --gc` from repo root.  
